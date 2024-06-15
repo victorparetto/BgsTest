@@ -10,11 +10,13 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 dir;
     Animator animController;
+    PlayerManager m_player;
 
     // Start is called before the first frame update
     void Start()
     {
         animController = GetComponentInChildren<Animator>();
+        m_player = GetComponent<PlayerManager>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,12 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerInput()
     {
+        if (!m_player.IsPlayerMovementAllowed())
+        {
+            animController.SetBool("isMoving", m_player.IsPlayerMovementAllowed());
+            return;
+        }
+
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
@@ -38,6 +46,12 @@ public class PlayerMovement : MonoBehaviour
 
     void MovePlayer()
     {
+        if (!m_player.IsPlayerMovementAllowed())
+        {
+            animController.SetBool("isMoving", m_player.IsPlayerMovementAllowed());
+            return;
+        }
+
         transform.position += Vector3.Normalize(dir) * speed * Time.deltaTime;
 
         MovementAnimation();
