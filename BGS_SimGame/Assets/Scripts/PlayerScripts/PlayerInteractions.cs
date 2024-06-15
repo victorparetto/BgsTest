@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
@@ -49,6 +50,7 @@ public class PlayerInteractions : MonoBehaviour
     {
         if (other.gameObject.layer == 6)
         {
+            if (p_interactableObject.gameObject != other.gameObject) return;
             p_interactableObject = null;
             canInteract = false;
             e_key.SetActive(false);
@@ -68,13 +70,13 @@ public class PlayerInteractions : MonoBehaviour
                         break;
                     }
                     StartCoroutine(m_canvas.PlayBlackFade(transform, p_interactableObject.endPos, m_player));
-                    print("isDoor");
                     break;
-                case InteractableObject.InteractableType.SHOP:
-                    print("isShop");
+                case InteractableObject.InteractableType.SHOP_ITEM:
+                    print("BOUGHT ITEM");
                     break;
                 case InteractableObject.InteractableType.CHEST:
-                    print("isShop");
+                    if (p_interactableObject.sr.sprite == p_interactableObject.sprites[1]) return;
+                    p_interactableObject.sr.sprite = p_interactableObject.sprites[1];
                     break;
                 case InteractableObject.InteractableType.BOOKCASE:
                     print("isShop");
