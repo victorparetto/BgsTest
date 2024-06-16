@@ -15,9 +15,8 @@ public class InteractableObject : MonoBehaviour
         NONE,
         DOOR,
         SHOP_UNLOCKABLE,
-        SHOP_ITEM,
+        SELLER,
         CHEST,
-        BOOKCASE,
     }
     public InteractableType interactableType;
 
