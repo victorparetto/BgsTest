@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectableType: 1
+  icon: {fileID: 863947533, guid: 922f0b52838c7ac4382b9de304a372e8, type: 3}

@@ -53,7 +53,9 @@ public class PlayerInteractions : MonoBehaviour
         else if (other.gameObject.layer == 7)
         {
             collectableItem = other.GetComponent<CollectableItem>();
-            m_inventory.inventory.AddItem(collectableItem.collectableType);
+            m_inventory.inventory.AddItem(collectableItem);
+            m_canvas.UpdateInventory();
+            m_canvas.OpenInventoryMenu();
             Destroy(other.gameObject);
         }
     }
