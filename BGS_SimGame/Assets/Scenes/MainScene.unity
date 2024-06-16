@@ -1146,6 +1146,7 @@ GameObject:
   - component: {fileID: 252570242}
   - component: {fileID: 252570241}
   - component: {fileID: 252570240}
+  - component: {fileID: 252570243}
   m_Layer: 5
   m_Name: Outfit Classic
   m_TagString: Untagged
@@ -1215,7 +1216,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 252570241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: ChangeOutfit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &252570241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1254,6 +1267,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 252570238}
   m_CullTransparentMesh: 1
+--- !u!114 &252570243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 252570238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f916e46b91a06c4d9e0b1f69df9fe36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  isUnlocked: 1
+  resetColor: 0
 --- !u!1 &289349153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1266,6 +1294,7 @@ GameObject:
   - component: {fileID: 289349160}
   - component: {fileID: 289349154}
   - component: {fileID: 289349159}
+  - component: {fileID: 289349161}
   - component: {fileID: 289349158}
   - component: {fileID: 289349157}
   m_Layer: 0
@@ -1404,6 +1433,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCanMove: 1
+--- !u!114 &289349161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289349153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f2a14e0dac2b014e961b8e797913a0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 627230530}
+  originalController: {fileID: 9100000, guid: 6b577185d44dac64ea0d9cd723aff1ce, type: 2}
+  outfits:
+  - {fileID: 0}
+  - {fileID: 22100000, guid: 010a8257e97f6524a93ba08b49cf34e1, type: 2}
+  - {fileID: 22100000, guid: 644951f73d855104b921009255a01309, type: 2}
+  - {fileID: 22100000, guid: 9638c16a4227114459bdbe2eae800901, type: 2}
+  - {fileID: 22100000, guid: 9eaf6c3cb3146bd4a9e68e3a5f9bd7c3, type: 2}
+  currentOutfitID: 0
 --- !u!1 &303679286
 GameObject:
   m_ObjectHideFlags: 0
@@ -82244,7 +82294,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967797801}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -82280,7 +82330,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 967797805}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: ChangeOutfit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &967797804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82293,6 +82355,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f916e46b91a06c4d9e0b1f69df9fe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 1
   isUnlocked: 0
   resetColor: 1
 --- !u!114 &967797805
@@ -83986,7 +84049,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570931539}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -84022,7 +84085,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1570931543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: ChangeOutfit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1570931542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84035,6 +84110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f916e46b91a06c4d9e0b1f69df9fe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 2
   isUnlocked: 0
   resetColor: 1
 --- !u!114 &1570931543
@@ -84493,6 +84569,7 @@ GameObject:
   - component: {fileID: 1671480113}
   - component: {fileID: 1671480112}
   - component: {fileID: 1671480116}
+  - component: {fileID: 1671480117}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Canvas
@@ -84575,9 +84652,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2023861105}
   - {fileID: 1511516830}
   - {fileID: 1989478974}
+  - {fileID: 2023861105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -84602,7 +84679,24 @@ MonoBehaviour:
   coinsPanel: {fileID: 1989478974}
   coinsPanelTarget: {x: 0, y: 0, z: 0}
   coinsPanelStart: {x: 0, y: 0, z: 0}
+  outfitPanel: {fileID: 1511516830}
+  outfitOpenButton_go: {fileID: 1842589620}
+  outfitPanelTarget: {x: 0, y: 0, z: 0}
+  outfitPanelStart: {x: 0, y: 0, z: 0}
   coinsText: {fileID: 1165543399}
+--- !u!114 &1671480117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671480111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a7a0a657d1cbc84291b5a1c517a74fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outfitPanelIsOpen: 0
 --- !u!4 &1719052695 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4332833289594930145, guid: b5ef3df2ecd8f444ab89e025612df7f4, type: 3}
@@ -85305,7 +85399,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1811660263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -85338,10 +85432,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1811660267}
+  m_TargetGraphic: {fileID: 252570241}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: ChangeOutfit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1811660266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85354,6 +85460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f916e46b91a06c4d9e0b1f69df9fe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 4
   isUnlocked: 0
   resetColor: 1
 --- !u!114 &1811660267
@@ -85497,7 +85604,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1842589623}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: MoveOutfitMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1842589623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85583,7 +85702,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1848418415}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
@@ -85619,7 +85738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1848418419}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1671480117}
+        m_TargetAssemblyTypeName: CanvasButtons, Assembly-CSharp
+        m_MethodName: ChangeOutfit
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1848418418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85632,6 +85763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f916e46b91a06c4d9e0b1f69df9fe36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 3
   isUnlocked: 0
   resetColor: 1
 --- !u!114 &1848418419
@@ -86052,7 +86184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -86132,6 +86264,10 @@ PrefabInstance:
       propertyPath: chestContent
       value: 
       objectReference: {fileID: 1591342815}
+    - target: {fileID: 4750432650000740371, guid: 9918bcb614850a4488c5a00dba4ffb7c, type: 3}
+      propertyPath: interactableType
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86151,6 +86287,6 @@ SceneRoots:
   - {fileID: 114084193}
   - {fileID: 62091919}
   - {fileID: 932871142}
-  - {fileID: 1719156661}
   - {fileID: 1671480115}
+  - {fileID: 1719156661}
   - {fileID: 1028264147}

@@ -36,7 +36,7 @@ public class InteractableObject : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (interactableType == InteractableType.SHOP_ITEM)
+        if (interactableType == InteractableType.SHOP_UNLOCKABLE)
         {
             if (other.CompareTag("Player"))
             {
@@ -47,7 +47,7 @@ public class InteractableObject : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (interactableType == InteractableType.SHOP_ITEM)
+        if (interactableType == InteractableType.SHOP_UNLOCKABLE)
         {
             if (other.CompareTag("Player"))
             {

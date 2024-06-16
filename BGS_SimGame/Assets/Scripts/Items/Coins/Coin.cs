@@ -38,7 +38,7 @@ public class Coin : MonoBehaviour
             else if (rb2d.velocity.y < 0.5f && canAnimate)
             {
                 canAnimate = false;
-                animController.SetTrigger("Bump");
+                animController.SetTrigger("BumpToZero");
             }
 
         }

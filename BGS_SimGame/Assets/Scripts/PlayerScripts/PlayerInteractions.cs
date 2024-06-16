@@ -75,6 +75,7 @@ public class PlayerInteractions : MonoBehaviour
                     break;
                 case InteractableObject.InteractableType.SHOP_UNLOCKABLE:
                     print("BOUGHT UNLOCKABLE");
+                    m_canvas.OpenOutfitMenu();
                     p_interactableObject.unlockable.UnlockItem();
                     p_interactableObject.unlockable.PlayBump();
                     p_interactableObject.gameObject.SetActive(false);
