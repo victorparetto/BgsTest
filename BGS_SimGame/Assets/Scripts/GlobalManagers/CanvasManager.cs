@@ -26,6 +26,10 @@ public class CanvasManager : MonoBehaviour
     [HideInInspector] public Vector3 outfitPanelTarget = Vector3.zero;
     [HideInInspector] public Vector3 outfitPanelStart = Vector3.zero;
 
+    public RectTransform inventoryPanel = null;
+    [HideInInspector] public Vector3 inventoryPanelTarget = Vector3.zero;
+    [HideInInspector] public Vector3 inventoryPanelStart = Vector3.zero;
+
     //Canvas Texts
     public TMP_Text coinsText = null;
 
@@ -40,11 +44,15 @@ public class CanvasManager : MonoBehaviour
         outfitPanelStart = outfitPanel.anchoredPosition;
         outfitPanelTarget = Vector3.zero;
 
+        inventoryPanelStart = inventoryPanel.anchoredPosition;
+        inventoryPanelTarget = Vector3.zero;
+
         if (blackFade) blackFade_anim = blackFade.GetComponent<Animator>();
     }
 
-    void AddUnlockedOutfit()
+    public void AddUnlockedOutfit()
     {
+        print(numberOfOutfitsUnlocked);
         numberOfOutfitsUnlocked += 1;
 
         if (numberOfOutfitsUnlocked > 1)
@@ -56,8 +64,15 @@ public class CanvasManager : MonoBehaviour
     public void OpenOutfitMenu()
     {
         if (outfitPanel.anchoredPosition != (Vector2)outfitPanelStart) return;
-        StartCoroutine(PanelShowSmoothly(outfitPanel, outfitPanelTarget, 1f, false));
+        StartCoroutine(PanelShowSmoothly(outfitPanel, outfitPanelTarget, 0.5f, false));
         m_buttons.outfitPanelIsOpen = true;
+    }
+
+    public void OpenInventoryMenu()
+    {
+        if (inventoryPanel.anchoredPosition != (Vector2)inventoryPanelStart) return;
+        StartCoroutine(PanelShowSmoothly(inventoryPanel, inventoryPanelTarget, 0.5f, false));
+        m_buttons.inventoryPanelIsOpen = true;
     }
 
     public IEnumerator PlayBlackFade(Transform transformToMove, Vector2 endPos, PlayerManager m_player)
