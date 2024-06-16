@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
         SetCoins(0);
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
+
     public int GetCurrentCoins()
     {
         return currentCoins;

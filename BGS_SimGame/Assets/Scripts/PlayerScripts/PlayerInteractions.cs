@@ -106,7 +106,7 @@ public class PlayerInteractions : MonoBehaviour
                     p_interactableObject.unlockable.PlayBump();
                     p_interactableObject.gameObject.SetActive(false);
                     break;
-                case InteractableObject.InteractableType.SHOP_ITEM:
+                case InteractableObject.InteractableType.SELLER:
                     print("BOUGHT ITEM");
                     break;
                 case InteractableObject.InteractableType.CHEST:
@@ -115,9 +115,6 @@ public class PlayerInteractions : MonoBehaviour
                     p_interactableObject.sr.sprite = p_interactableObject.sprites[1];
                     p_interactableObject.chestContent.SetActive(true);
                     StartCoroutine(m_canvas.PanelShowSmoothly(m_canvas.coinsPanel, m_canvas.coinsPanelTarget, 1f, true));
-                    break;
-                case InteractableObject.InteractableType.BOOKCASE:
-                    print("isShop");
                     break;
                 default:
                     break;
