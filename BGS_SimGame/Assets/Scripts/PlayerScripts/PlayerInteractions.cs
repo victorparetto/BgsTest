@@ -11,12 +11,14 @@ public class PlayerInteractions : MonoBehaviour
 
     PlayerManager m_player = null;
     CanvasManager m_canvas = null;
+    GameManager m_game = null;
     InteractableObject p_interactableObject = null;
 
     void Start()
     {
         m_player = GetComponent<PlayerManager>();
         m_canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasManager>();
+        m_game = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
     }
 
     void Update()
@@ -64,19 +66,28 @@ public class PlayerInteractions : MonoBehaviour
             switch (p_interactableObject.interactableType)
             {
                 case InteractableObject.InteractableType.DOOR:
-                    if (m_canvas.CR_active)
+                    if (m_canvas.Cor_active)
                     {
                         transform.position = p_interactableObject.endPos;
                         break;
                     }
                     StartCoroutine(m_canvas.PlayBlackFade(transform, p_interactableObject.endPos, m_player));
                     break;
+                case InteractableObject.InteractableType.SHOP_UNLOCKABLE:
+                    print("BOUGHT UNLOCKABLE");
+                    p_interactableObject.unlockable.UnlockItem();
+                    p_interactableObject.unlockable.PlayBump();
+                    p_interactableObject.gameObject.SetActive(false);
+                    break;
                 case InteractableObject.InteractableType.SHOP_ITEM:
                     print("BOUGHT ITEM");
                     break;
                 case InteractableObject.InteractableType.CHEST:
                     if (p_interactableObject.sr.sprite == p_interactableObject.sprites[1]) return;
+                    m_game.AddCoins(p_interactableObject.coinsToAdd);
                     p_interactableObject.sr.sprite = p_interactableObject.sprites[1];
+                    p_interactableObject.chestContent.SetActive(true);
+                    StartCoroutine(m_canvas.PanelShowSmoothly(m_canvas.coinsPanel, m_canvas.coinsPanelTarget, 1f, true));
                     break;
                 case InteractableObject.InteractableType.BOOKCASE:
                     print("isShop");

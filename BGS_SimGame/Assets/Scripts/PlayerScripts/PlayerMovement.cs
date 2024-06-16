@@ -8,6 +8,11 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 10)]
     public float speed;
 
+    [Range(1.2f, 2)]
+    public float speedMultiplier = 1.5f;
+
+    bool isRunning = false;
+
     Vector3 dir;
     Animator animController;
     PlayerManager m_player;
@@ -23,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         PlayerInput();
+        ActivateRun();
     }
 
     void FixedUpdate()
@@ -52,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        transform.position += Vector3.Normalize(dir) * speed * Time.deltaTime;
+        transform.position += Vector3.Normalize(dir) * (isRunning ? speed * speedMultiplier : speed) * Time.deltaTime;
 
         MovementAnimation();
     }
@@ -74,6 +80,14 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             animController.SetBool("isMoving", false);
+        }
+    }
+
+    void ActivateRun()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            isRunning = !isRunning;
         }
     }
 }
