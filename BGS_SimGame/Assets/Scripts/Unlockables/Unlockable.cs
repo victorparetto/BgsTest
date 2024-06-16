@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 public class Unlockable : MonoBehaviour
 {
+    public int id = 0;
+
     public bool isUnlocked = false;
     public bool resetColor = false;
 
     Animator anim;
+    Button buttonComp;
 
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        if (gameObject.GetComponent<Button>()) buttonComp = GetComponent<Button>();
 
         if (isUnlocked)
         {
@@ -23,6 +27,7 @@ public class Unlockable : MonoBehaviour
     public void UnlockItem()
     {
         isUnlocked = true;
+        if (buttonComp) buttonComp.enabled = true;
 
         if (resetColor)
         {

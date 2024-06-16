@@ -12,16 +12,25 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         m_canvas = GameObject.FindGameObjectWithTag("Canvas").GetComponent<CanvasManager>();
-    }
 
-    public void AddCoins(int coinsToAdd)
-    {
-        currentCoins += coinsToAdd;
-        m_canvas.coinsText.text = currentCoins.ToString();
+        SetCoins(0);
     }
 
     public int GetCurrentCoins()
     {
         return currentCoins;
     }
+
+    public void SetCoins(int coins)
+    {
+        currentCoins = coins;
+        m_canvas.coinsText.text = currentCoins.ToString();
+    }
+
+    public void UpdateCoins(int coinsToAdd)
+    {
+        currentCoins += coinsToAdd;
+        m_canvas.coinsText.text = currentCoins.ToString();
+    }
+
 }
