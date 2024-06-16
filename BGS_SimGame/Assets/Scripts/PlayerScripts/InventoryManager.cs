@@ -8,6 +8,6 @@ public class InventoryManager : MonoBehaviour
 
     void Awake()
     {
-        inventory = new Inventory(10);
+        inventory = new Inventory(3);
     }
 }

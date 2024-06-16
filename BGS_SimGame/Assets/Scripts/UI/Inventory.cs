@@ -12,6 +12,8 @@ public class Inventory
         public int stack;
         public int maxStack;
 
+        public Sprite icon;
+
         public Slot()
         {
             collectableType = CollectableType.NONE;
@@ -28,9 +30,10 @@ public class Inventory
             else return false;
         }
 
-        public void AddItem(CollectableType type)
+        public void AddItem(CollectableItem item)
         {
-            this.collectableType = type;
+            this.collectableType = item.collectableType;
+            this.icon = item.icon;
             stack++;
         }
     }
@@ -46,13 +49,13 @@ public class Inventory
         }
     }
 
-    public void AddItem(CollectableType type)
+    public void AddItem(CollectableItem item)
     {
         foreach (Slot slot in slots)
         {
-            if (slot.collectableType == type && slot.CanAddItem())
+            if (slot.collectableType == item.collectableType && slot.CanAddItem())
             {
-                slot.AddItem(type);
+                slot.AddItem(item);
                 return;
             }
         }
@@ -61,7 +64,7 @@ public class Inventory
         {
             if (slot.collectableType == CollectableType.NONE)
             {
-                slot.AddItem(type);
+                slot.AddItem(item);
                 return;
             }
         }

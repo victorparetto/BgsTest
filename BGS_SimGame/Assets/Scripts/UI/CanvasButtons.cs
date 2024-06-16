@@ -35,16 +35,18 @@ public class CanvasButtons : MonoBehaviour
 
     public void MoveInventoryMenu()
     {
+        m_canvas.UpdateInventory();
+
         if (inventoryPanelIsOpen)
         {
-            if (m_canvas.inventoryPanel.anchoredPosition.x >= m_canvas.inventoryPanelTarget.x + 0.5) return;
+            if (m_canvas.inventoryPanel.anchoredPosition.x <= m_canvas.inventoryPanelTarget.x - 0.5) return;
             StartCoroutine(m_canvas.PanelShowSmoothly(m_canvas.inventoryPanel, m_canvas.inventoryPanelStart, 0.5f, false));
             inventoryPanelIsOpen = false;
 
         }
         else
         {
-            if (m_canvas.inventoryPanel.anchoredPosition.x <= m_canvas.inventoryPanelStart.x - 0.5) return;
+            if (m_canvas.inventoryPanel.anchoredPosition.x >= m_canvas.inventoryPanelStart.x + 0.5) return;
             StartCoroutine(m_canvas.PanelShowSmoothly(m_canvas.inventoryPanel, m_canvas.inventoryPanelTarget, 0.5f, false));
             inventoryPanelIsOpen = true;
         }

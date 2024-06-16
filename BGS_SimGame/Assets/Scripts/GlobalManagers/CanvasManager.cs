@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class CanvasManager : MonoBehaviour
     //Managers
     GameManager m_game = null;
     CanvasButtons m_buttons = null;
+    InventoryManager m_inventory = null;
 
     //Canvas Panels
     public RectTransform coinsPanel = null;
@@ -30,12 +32,18 @@ public class CanvasManager : MonoBehaviour
     [HideInInspector] public Vector3 inventoryPanelTarget = Vector3.zero;
     [HideInInspector] public Vector3 inventoryPanelStart = Vector3.zero;
 
+    //Inventory Management
+    GameObject itemSlotPrefab = null;
+    GameObject slots_go = null;
+    public List<ItemSlot> slots = new List<ItemSlot>();
+
     //Canvas Texts
     public TMP_Text coinsText = null;
 
     void Start()
     {
         m_game = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
+        m_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<InventoryManager>();
         m_buttons = GetComponent<CanvasButtons>();
 
         coinsPanelStart = coinsPanel.anchoredPosition;
@@ -70,9 +78,28 @@ public class CanvasManager : MonoBehaviour
 
     public void OpenInventoryMenu()
     {
+        UpdateInventory();
         if (inventoryPanel.anchoredPosition != (Vector2)inventoryPanelStart) return;
         StartCoroutine(PanelShowSmoothly(inventoryPanel, inventoryPanelTarget, 0.5f, false));
         m_buttons.inventoryPanelIsOpen = true;
+    }
+
+    public void UpdateInventory()
+    {
+        if (slots.Count == m_inventory.inventory.slots.Count)
+        {
+            for (int i = 0; i < slots.Count; i++)
+            {
+                if (m_inventory.inventory.slots[i].collectableType != CollectableType.NONE)
+                {
+                    slots[i].SetSlot(m_inventory.inventory.slots[i]);
+                }
+                else
+                {
+                    slots[i].SetEmpty();
+                }
+            }
+        }
     }
 
     public IEnumerator PlayBlackFade(Transform transformToMove, Vector2 endPos, PlayerManager m_player)
